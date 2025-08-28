@@ -16,9 +16,10 @@ function generateName(event) {
   let prompt = `User instructions: Generate AI names ${instructionsInput.value}`;
   let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
+
   let poemElement = document.querySelector("#name");
   poemElement.classList.remove("hidden");
-  poemElement.innerHTML = `<div class="generating">⏳ Generatins names ${instructionsInput.value}</div>`;
+  poemElement.innerHTML = `<div class="generating">⏳ Generating name ${instructionsInput.value}</div>`;
 
   axios.get(apiURL).then(displayName);
 }

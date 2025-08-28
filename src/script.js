@@ -20,11 +20,6 @@ function generateName(event) {
   console.log('Prompt:${prompt}');
   console.log('Context:${context}');
 
-
-  let nameElement = document.querySelector("#name");
-  nameElement.classList.remove("hidden");
-  nameElement.innerHTML = `<div class="generating">⏳ Generating name ${instructionsInput.value}</div>`;
-
   axios.get(apiURL).then(displayName);
 }
 let nameFormElement = document.querySelector("#name-generator-form");

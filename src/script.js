@@ -1,16 +1,26 @@
-document.getElementById('nameForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const instructions = document.getElementById('instructions').value.trim();
-const resultDiv = document.getElementById('result');
-//Simulating AI generated names based on user instructions
-const generatedNames = generatedNamesBasedOnInstructions(instructions);
-resultDiv.innerHTML = generatedNames.length ? `<strong>Generated Names:</strong> ${generatedNames.join(', ')}` : 'No names generated. Please try different instructions.';
-});
-
-function generatedNamesBasedOnInstructions(instructions) {
-  //Dummy name generation logic for demonstration purposes
-  const sampleNames = ['Elizabeth', 'Tina', 'Vanessa', 'Huda', 'Aisha'];
-
-  //Filter names based on instructions (In a real scenario, this would involve AI processing)
-  return sampleNames.filter(name => instructions.toLowerCase().includes(name[0].toLowerCase()));
+function displayName(response) {
+  new Typewriter("#name", {
+    strings: response.data.answer,
+    autoStart: true,
+    delay: 1,
+    cursor: "",
+  });
 }
+
+function generateName(event) {
+  event.preventDefault();
+
+  let instructionsInput = document.querySelector("#user-instructions");
+  let apiKey = "97eod64d4af071fc4fb21ct3fb439676"; // Replace with your actual API key
+  let context ="You are an incredible name expert. Your mission is to generate a 6 names in basic HTML and separate each line with a <br />. Make sure to follow the user instructions. Do not include a title to the names. Do not include any additional commentary. Do not apologize. Do not self-reference. Do not explain what you are doing. Just give me the names.";
+  let prompt = `User instructions: Generate AI names ${instructionsInput.value}`;
+  let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
+
+  let poemElement = document.querySelector("#name");
+  poemElement.classList.remove("hidden");
+  poemElement.innerHTML = `<div class="generating">⏳ Generatins names ${instructionsInput.value}</div>`;
+
+  axios.get(apiURL).then(displayName);
+}
+let nameFormElement = document.querySelector("#name-generator-form");
+nameFormElement.addEventListener("submit", generateName);

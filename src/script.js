@@ -16,6 +16,10 @@ function generateName(event) {
   let prompt = `User instructions: Generate AI Name ${instructionsInput.value}`;
   let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
+  console.log(apiURL).then(displayName);
+  console.log('Prompt:${prompt}');
+  console.log('Context:${context}');
+
 
   let nameElement = document.querySelector("#name");
   nameElement.classList.remove("hidden");

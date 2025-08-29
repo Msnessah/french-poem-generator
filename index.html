@@ -9,29 +9,35 @@
     <title>AI Poem Generator</title>
   </head>
   <body>
-<body>
     <div class="container">
       <header>
         <h1>AI Poem Generator</h1>
       </header>
 
       <main>
-        <form id="poem-generator-form">
-          <input
-            type="text"
-            placeholder="Enter a theme (e.g., love, nature, friendship)"
-            autofocus
-            required
-            autocomplete="off"
-            class="instructions"
-          />
-          <input type="submit" class="submit-button" />
-        </form>
-        <div class="poem" id="poem"></div>
+        <div class="form-container">
+          <form id="poem-generator-form">
+            <input
+              type="text"
+              placeholder="Enter the topic of a French poem"
+              autofocus
+              required
+              autocomplete="off"
+              class="instructions"
+              id="user-instructions"
+            />
+            <input type="submit" class="submit-button" />
+          </form>
+          <div class="hint">i.e: Flower, Paris or Cheese</div>
+        </div>
+        <div class="poem hidden" id="poem"></div>
       </main>
 
     <footer>This AI project was coded by
-        <a href="https://github.com/Msnessah"target="_blank">Tshegofatso Vanessa</a> and is <a href="https://github.com/Msnessah/french-poem-generator"target="blank"> open-sourced on GitHub </a> and is <a href="https://ai-poem-generatorrr1.netlify.app/"target="_blank"> hosted on Netlify</footer>
+        <a href="https://github.com/Msnessah"target="_blank">Tshegofatso Vanessa</a> 
+        and is <a href="https://github.com/Msnessah/french-poem-generator"target="blank"> 
+          open-sourced on GitHub </a>
+           and is <a href="https://ai-poem-generatorrr1.netlify.app/"target="_blank"> hosted on Netlify</footer>
      <script src="src/index.js"></script>
 </body>
 </html>
